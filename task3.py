@@ -20,10 +20,14 @@ def partition(A, s, e):  # A - array to partition , s - start index, e - end ind
 def quicksort(A, s, e):  # same - A - array, s - start index, e - end index.
     if s >= e:
         return  # already sorted
-    if e > s:
+    while s < e:
         i = partition(A, s, e)
-        quicksort(A, s, i - 1)
-        quicksort(A, i + 1, e)
+        if i-s < e-i:
+            quicksort(A, s, i - 1)
+            s = i + 1
+        else:
+            quicksort(A, i+1, e)
+            e = i-1
 
 
 class Test(unittest.TestCase):

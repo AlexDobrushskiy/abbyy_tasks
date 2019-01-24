@@ -3,6 +3,8 @@ import random
 
 
 def partition(A, s, e):  # A - array to partition , s - start index, e - end index, so we apply partition for A[s:e+1]
+    rnd_idx = random.randint(s, e)
+    A[e], A[rnd_idx] = A[rnd_idx], A[e]
     i = s - 1
     j = s
     x = A[e]
